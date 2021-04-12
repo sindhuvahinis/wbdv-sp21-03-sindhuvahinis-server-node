@@ -15,13 +15,13 @@ const findAllQuestions = () => {
 }
 
 const findQuestionsForQuiz = (quizId) => {
-    return questions.find((question) => {
+    return questions.filter((question) => {
         return question.quizId === quizId;
     })
 }
 
 const findQuestionById = (questionId) => {
-    return questions.find((question) => {
+    return questions.filter((question) => {
         return question._id === questionId
     })
 }
