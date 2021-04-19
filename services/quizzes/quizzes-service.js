@@ -1,4 +1,5 @@
 const quizzes = require('./quizzes.json')
+const quizzesModel = require("../../models/quizzes/quizzes-model")
 
 // TODO : MongoDB Assignment
 const createQuiz = () => {
@@ -8,15 +9,13 @@ const updateQuiz = () => {
 const deleteQuiz = () => {
 }
 
-// TODO: Node.js Assignment
 const findAllQuizzes = () => {
-    return quizzes
+    return quizzesModel.find();
 }
 
 const findQuizById = (quizId) => {
-    return quizzes.find((quiz) => {
-        return quiz._id === quizId
-    })
+    return quizzesModel
+        .findById(quizId)
 }
 
 module.exports = {

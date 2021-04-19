@@ -1,4 +1,5 @@
 const questions = require('./questions.json')
+const questionsModel = require('../../models/questions/questions-model')
 
 const createQuestion = () => {
 }
@@ -11,13 +12,11 @@ const deleteQuestion = () => {
 }
 
 const findAllQuestions = () => {
-    return questions;
+    return questionsModel.find();
 }
 
 const findQuestionsForQuiz = (quizId) => {
-    return questions.filter((question) => {
-        return question.quizId === quizId;
-    })
+    return questionsModel.find({quizId: quizId})
 }
 
 const findQuestionById = (questionId) => {
