@@ -6,14 +6,14 @@ module.exports = (app) => {
 
     // req and res allows participating in client - server architecture
     const findAllQuizzes = (req, res) => {
-        const quizzes = quizzesService.findAllQuizzes()
-        res.send(quizzes)
+        quizzesService.findAllQuizzes()
+            .then(quizzes => res.send(quizzes))
     }
 
     const findQuizById = (req, res) => {
         const quizId = req.params['quizId']
-        const quiz = quizzesService.findQuizById(quizId)
-        res.send(quiz)
+        quizzesService.findQuizById(quizId)
+            .then(quiz => res.send(quiz))
     }
 
     app.get("/api/quizzes", findAllQuizzes)
